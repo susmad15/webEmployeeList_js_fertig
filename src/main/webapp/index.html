@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Employee List</title>
+    </head>
+    <body onload="onGetEmployees()">
+        <h1>Employee List</h1>
+
+        <div style="display: inline-block; width:10%;">
+            <h3>Employees</h3>
+            <select name="selectedEmployee" id="selectedEmployee" onchange="onSelectEmployee(this);" size="10">
+
+            </select>
+        </div>
+
+        <div style="display: inline-block; width:10%;">
+            <h3>Meetings</h3>
+            <select name="selectedMeeting" id="selectedMeeting" onchange="onSelectMeeting(this);" size="10">
+
+            </select>
+        </div>
+
+        <div style="display: inline-block; width:10%;">
+            <h3>Participants</h3>
+            <select name="selectedParticipant" id="selectedParticipant" size="10">
+
+            </select>
+        </div>
+        <br>
+        <br>
+        <button onclick="onShowAddMeeting();">Add Meeting</button>
+        <br>
+        <br>
+        <div id="addMeeting"></div>
+
+
+        <script type="text/javascript" src="selectCreator.js"></script>
+        <script>
+            const onGetEmployees = () => {
+                var sc = new selectCreator("selectedEmployee", "RetrieveEmployees", null);
+                sc.create();
+            };
+
+            const onSelectEmployee = (employeeSelect) => {
+                var sc = new selectCreator("selectedMeeting", "RetrieveMeetingsForEmployee", employeeSelect.value);
+                sc.create();
+            };
+
+            const onSelectMeeting = (meetingSelect) => {
+                var sc = new selectCreator("selectedParticipant", "RetrieveParticipantsForMeeting", meetingSelect.value);
+                sc.create();
+            };
+
+            const onShowAddMeeting = () => {
+                var employeeSelect = document.getElementById("selectedEmployee");
+                var employeeId = employeeSelect.options[employeeSelect.selectedIndex].value;
+                var employeeName = employeeSelect.options[employeeSelect.selectedIndex].innerHTML;
+
+                var div = document.getElementById("addMeeting");
+
+                var input = document.createElement("input");
+                input.setAttribute("id", "addMeetingForEmployee");
+                input.setAttribute("value", employeeName);
+                input.setAttribute("readonly", "true");
+
+                var button_submit = document.createElement("button");
+                button_submit.innerHTML = "Submit";
+                button_submit.setAttribute("onclick", "onAddMeetingToEmployee(" + employeeId + ")");
+
+                var button_cancel = document.createElement("button");
+                button_cancel.innerHTML = "Cancel";
+                button_cancel.setAttribute("onclick", "onHideAddMeeting();");
+
+                div.innerHTML = "Add Meeting for: ";
+                div.innerHTML += "<br>";
+                div.appendChild(input);
+                div.innerHTML += "<br>";
+                div.appendChild(button_submit);
+                div.appendChild(button_cancel);
+                div.innerHTML += "<br>";
+            };
+
+            const onHideAddMeeting = () => {
+                var div = document.getElementById("addMeeting");
+                div.innerHTML = "";
+            };
+
+            const onAddMeetingToEmployee = (selectedEmployeeId) => {
+                var employeeSelect = document.getElementById("selectedEmployee");
+
+                fetch("AddMeeting",
+                        {
+                            method: 'post',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: selectedEmployeeId
+                        }
+                ).then(() => {
+                    onSelectEmployee(employeeSelect);
+                });
+            };
+        </script>
+    </body>
+</html>

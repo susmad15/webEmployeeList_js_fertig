@@ -1,0 +1,12 @@
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/pojo/Employee.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/data/Employee.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/server/DBServerProxy.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/controller/RetrieveEmployees.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/controller/RetrieveParticipantsForMeeting.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/server/IServerProxy.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/controller/RetrieveMeetingsForEmployee.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/data/Meeting.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/pojo/Meeting.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/server/MockServerProxy.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/controller/AddMeeting.java
+/home/markus/Dokumente/HTL/5DHIF/POS/web/web04_EmployeeList_JS_fertig/src/main/java/server/ServerProxyFactory.java
